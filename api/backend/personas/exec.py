@@ -106,9 +106,9 @@ def update_event():
     start_time = the_data['event_startTime']
     end_time = the_data['event_endTime']
 
-    query = 'UPDATE Event SET first_name = %s, last_name = %s, company = %s where id = %s WHERE event_id = %s'
+    query = 'UPDATE Event SET first_name = %s, last_name = %s, company = %s WHERE event_id = %s'
     data = (title, start_time, end_time, event_id)
     cursor = db.get_db().cursor()
-    r = cursor.execute(query, data)
+    cursor.execute(query, data)
     db.get_db().commit()
     return 'event updated!'
