@@ -17,7 +17,6 @@ def add_new_event():
 
     # extracting the variable
     title = the_data['event_title']
-    date = the_data['event_date']
     start_time = the_data['event_startTime']
     end_time = the_data['event_endTime']
     num_rsvps = the_data['num_RSVPS']
@@ -26,13 +25,12 @@ def add_new_event():
     
     query = f'''
         INSERT INTO Event (event_title,
-                              event_date,
                               event_startTime, 
                               event_endTime,
                               num_RSVPS,
                               exec_id,
                               speaker_id)
-        VALUES ('{title}', '{date}', '{start_time}', '{end_time}', {str(num_rsvps)}, {str(exec_id)}, {str(speaker_id)})
+        VALUES ('{title}', '{start_time}', '{end_time}', {str(num_rsvps)}, {str(exec_id)}, {str(speaker_id)})
     '''
     current_app.logger.info(query)
 
@@ -50,7 +48,7 @@ def add_new_event():
 def get_event(event_id):
     current_app.logger.info('GET /events/<event_id> route')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT event_title, event_date, num_RSVPS FROM Events WHERE event_id = {0}'.format(event_id))
+    cursor.execute('SELECT event_title, num_RSVPS FROM Events WHERE event_id = {0}'.format(event_id))
     
     theData = cursor.fetchall()
     
@@ -95,7 +93,7 @@ def get_clients():
     return the_response
 
 
-# user story 1.6 (update event title, date, starttime, and endtime)
+# user story 1.6 (update event title, starttime, and endtime)
 @executives.route('/events/<event_id>', methods=['PUT'])
 def update_event():
     current_app.logger.info('PUT /events/<event_id> route')
@@ -105,12 +103,11 @@ def update_event():
 
     event_id = the_data['event_id']
     title = the_data['event_title']
-    date = the_data['event_date']
     start_time = the_data['event_startTime']
     end_time = the_data['event_endTime']
 
     query = 'UPDATE Event SET first_name = %s, last_name = %s, company = %s where id = %s WHERE event_id = %s'
-    data = (title, date, start_time, end_time, event_id)
+    data = (title, start_time, end_time, event_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
