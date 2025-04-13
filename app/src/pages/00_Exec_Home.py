@@ -17,9 +17,26 @@ st.write('### What would you like to do today?')
 if st.button('Create an Ideate Event', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
+  st.switch_page('pages/01_Create_Event.py')
 
-if st.button('View World Map Demo', 
+
+if st.button('Get Details for a specific Ideate Event', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
+  st.switch_page('pages/02_Get_Specific_Event.py')
+
+  
+if st.button('Get Details for a specific Ideate Project', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/03_Get_Specific_Project.py')
+
+if st.button('Get April 1 Ideate Projects', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/04_April_1_Projects.py')
+
+if st.button('Update an Ideate Event', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/05_Update_Event.py')
