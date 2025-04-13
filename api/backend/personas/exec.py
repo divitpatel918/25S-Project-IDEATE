@@ -9,7 +9,7 @@ executives = Blueprint('executives', __name__)
 
 
 # user story 1.1 (create event)
-@executives.route('/product', methods=['POST'])
+@executives.route('/events', methods=['POST'])
 def add_new_event():
 
     the_data = request.json
@@ -59,7 +59,7 @@ def get_event(event_id):
 
 # user story 1.3 (get information about a specific project)
 @executives.route('/projects/<project_id>', methods=['GET'])
-def get_event(project_id):
+def get_projects(project_id):
     current_app.logger.info('GET /projects/<project_id> route')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT p.project_id AS project_id, p.project_description AS description FROM Project p WHERE p.project_id = {0}'.format(project_id))
