@@ -43,7 +43,7 @@ def add_new_event():
     return response
 
 
-# user story 1.2
+# user story 1.2  (get information about a specific event)
 @executives.route('/events/<event_id>', methods=['GET'])
 def get_event(event_id):
     current_app.logger.info('GET /events/<event_id> route')
@@ -72,7 +72,7 @@ def get_event(project_id):
 
 
 
-# user story 1.4 (get projects that started on April 1)
+# user story 1.4 (get clients and projects that started on April 1)
 @executives.route('/clients', methods=['GET'])
 def get_clients():
 
