@@ -43,9 +43,9 @@ def get_groupMeetings(memberId):
 
 #------------------------------------------------------------
 # gets all the status updates for the given project 
-@members.route('/statusupdates/{userID}', methods=['GET'])
+@members.route('/statusupdates/<userID>', methods=['GET'])
 def get_StatusUpdates(userID):
-    cursor = db.get_db.cursor()
+    cursor = db.get_db().cursor()
     query = '''SELECT * FROM Status_Update AS su 
                    JOIN Member_Meeting AS mm ON gm.meeting_id = mm.meeting_id
                    JOIN General_Member AS genMem ON mm.member_id = genMem.member_id
