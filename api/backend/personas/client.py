@@ -36,11 +36,11 @@ def put_project(project_id):
 
     
     description = the_data['project_description']
-    start_date = the_data['project_startDate']
-    end_date = the_data['project_endDate']
+    
 
-    query = 'UPDATE Project SET project_description = %s, project_startDate = %s, project_endDate = %s WHERE project_ID = %s'
-    data = (description, start_date, end_date, project_id)
+
+    query = 'UPDATE Project SET project_description = %s, WHERE project_ID = %s'
+    data = (description, project_id)
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
     db.get_db().commit()
