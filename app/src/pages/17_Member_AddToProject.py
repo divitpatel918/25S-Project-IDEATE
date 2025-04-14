@@ -10,13 +10,18 @@ with st.form("Add Yourself to Project"):
     memberId = st.text_input("Input Member Id")
     projectId = st.text_input("Input Project Id:")
 
-    submitted = st.form_submit_button
+    submitted = st.form_submit_button("Submit:")
     if submitted:
         data = {}
         data['member_id'] = memberId
         data['project_id'] = projectId
         st.write(data)
-
         requests.post('http://api:4000/m/projects', json = data)
+        if requests.status_code == 200:
+            st.write("Added yourself succesfully")
+        else:
+            st.write("Could not connect to the API, or not found.")
+    else:
+        st.warning("Please press submit.")
 
     
