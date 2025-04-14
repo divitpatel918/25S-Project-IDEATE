@@ -104,7 +104,7 @@ def update_customer():
 
 #------------------------------------------------------------
 # allows for member to view all the projects they are assigned to
-@members.route('/projects/{member_id}', methods=['GET'])
+@members.route('/projects/<member_id>', methods=['GET'])
 def get_projects(member_id):
 
     cursor = db.get_db().cursor()
