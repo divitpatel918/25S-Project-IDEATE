@@ -89,7 +89,7 @@ def add_new_status_update():
 
 #------------------------------------------------------------
 # allows for member to update the status of a ticket
-@members.route('/tickets', methods=['PUT'])
+@members.route('/tickets/', methods=['PUT'])
 def update_customer():
     ticket_info = request.json
     id = ticket_info['ticket_id']
