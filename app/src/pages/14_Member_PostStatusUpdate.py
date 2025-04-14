@@ -12,7 +12,7 @@ with st.form("Create a Status Update"):
     status_projectId = st.text_input("Input Project Id:")
     status_memberId = st.text_input("Input Member Id")
 
-    submitted = st.form_submit_button
+    submitted = st.form_submit_button("Submit:")
     if submitted:
         data = {}
         data['update_description'] = status_description
