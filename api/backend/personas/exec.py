@@ -82,7 +82,7 @@ def get_clients():
     SELECT c.client_name AS client, p.project_description AS project
     FROM Client c
     JOIN Project p ON c.client_id = p.client_id
-    WHERE p.project_startDate = ‘2025-04-01’
+    WHERE p.project_startDate = '2025-04-01'
 
     ''')
     
