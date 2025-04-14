@@ -130,7 +130,7 @@ def add_to_project():
     member_id = the_data['member_id']
     project_id = the_data['project_id']
     query = f'''
-        INSERT INTO Member_Project (member_id, project_id,)
+        INSERT INTO Member_Project (member_id, project_id)
         VALUES ('{member_id}', '{project_id}')
     '''
     
