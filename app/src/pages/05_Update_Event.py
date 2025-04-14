@@ -25,7 +25,8 @@ if st.button("Change Event Attributes"):
         }
         response = requests.put(f"http://api:4000/e/events/{event_id}", json=data)
         if response.status_code == 200:
-            st.dataframe(response)
+            response = "Event created successfully."
+            st.write(response)
         else:
             st.write("Could not connect to the API, or not found.")
     else:

@@ -13,9 +13,10 @@ event_id = st.text_input("Enter Event ID: ")
 
 if st.button("Access Info"):
     if event_id:
-        response = requests.get(f"http://api:4000/e/events/{event_id}").json()
+        response = requests.get(f"http://api:4000/e/events/{event_id}")
         if response.status_code == 200:
-            st.dataframe(response)
+            data = response.json()
+            st.dataframe(data)
         else:
             st.write("Could not connect to the API, or project not found.")
     else:

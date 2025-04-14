@@ -13,7 +13,7 @@ st.write("# Get April 1 Project/Client Info")
 response = requests.get(f"http://api:4000/e/clients")
 
 if response.status_code == 200:
-    response = response.json()
-    st.dataframe(response)
+    data = response.json()
+    st.dataframe(data)
 else:
      st.write("Could not connect to the API, or project not found.")

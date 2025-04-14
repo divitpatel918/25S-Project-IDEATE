@@ -13,9 +13,10 @@ project_id = st.text_input("Enter Project ID: ")
 
 if st.button("Access Info"):
     if project_id:
-        response = requests.get(f"http://api:4000/e/projects/{project_id}").json()
+        response = requests.get(f"http://api:4000/e/projects/{project_id}")
         if response.status_code == 200:
-            st.dataframe(response)
+            data = response.json()
+            st.dataframe(data)
         else:
             st.write("Could not connect to the API, or project not found.")
     else:

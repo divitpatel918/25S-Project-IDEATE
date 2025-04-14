@@ -29,7 +29,7 @@ if submitted:
         "exec_id": exec_id,
         "speaker_id": speaker_id
     }
-    response = requests.post(f"http://api:4000/e/events/", json=data)
+    response = requests.post("http://api:4000/e/events/", json=data)
 
     if response.status_code == 200:
         st.dataframe(response)
