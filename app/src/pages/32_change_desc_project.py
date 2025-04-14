@@ -21,7 +21,7 @@ if st.button("Change Project Description"):
         data = {
             "project_description": new_description
         }
-        response = requests.put(f"http://api:4000/c/projects/{project_id}", json=data)
+        response = requests.put(f"http://api:4000/c/project/{project_id}", json=data)
         if response.status_code == 200:
             response = response.json()
             st.dataframe(response)
