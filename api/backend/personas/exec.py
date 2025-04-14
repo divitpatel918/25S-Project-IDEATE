@@ -96,7 +96,7 @@ def get_clients():
 
 # user story 1.6 (update event title, starttime, and endtime)
 @executives.route('/events/<event_id>', methods=['PUT'])
-def update_event():
+def update_event(event_id):
     current_app.logger.info('PUT /events/<event_id> route')
 
     the_data = request.json
@@ -107,7 +107,7 @@ def update_event():
     start_time = the_data['event_startTime']
     end_time = the_data['event_endTime']
 
-    query = 'UPDATE Event SET first_name = %s, last_name = %s, company = %s WHERE event_id = %s'
+    query = 'UPDATE Event SET event_title = %s, event_startTime = %s, event_endTime = %s WHERE event_id = %s'
     data = (title, start_time, end_time, event_id)
     cursor = db.get_db().cursor()
     cursor.execute(query, data)

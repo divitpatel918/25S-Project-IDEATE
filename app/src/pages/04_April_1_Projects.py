@@ -10,7 +10,7 @@ SideBarLinks()
 
 st.write("# Get April 1 Project/Client Info")
 
-response = requests.get(f"http://api:4000/e/clients")
+response = requests.get("http://api:4000/e/clients")
 
 if response.status_code == 200:
     data = response.json()
