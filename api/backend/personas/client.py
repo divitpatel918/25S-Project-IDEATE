@@ -68,17 +68,19 @@ def delete_project(client_id, project_id):
 def get_member_info(project_id):
     current_app.logger.info('GET /memberproject/<project_id> route')
     cursor = db.get_db().cursor()
+
     cursor.execute('''
-                   
-    SELECT gm.member_id, gm.member_name, gm.member_email, gm.member_year, gm.member_major
+        SELECT gm.member_id, gm.member_name, gm.member_email, gm.member_year, gm.member_major
         FROM General_Member gm
         JOIN Members_Project mp ON gm.member_id = mp.member_id
         WHERE mp.project_id = %s
-    ''')
+    ''', (project_id,))
+
     
     theData = cursor.fetchall()
     
     the_response = make_response(jsonify(theData))
+    the_response.mimetype='application/json'
     the_response.status_code = 200
     return the_response
 
@@ -103,5 +105,4 @@ def get_executive_member(client_id):
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     return the_response
-
 
