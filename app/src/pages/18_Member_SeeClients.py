@@ -11,9 +11,10 @@ submitted = st.button("Submit Member Id")
 
 if submitted:
  if member_id:
-    response = requests.get(f"http://api:4000/m/clients/{member_id}").json()
+    response = requests.get(f"http://api:4000/m/clients/{member_id}")
     if response.status_code == 200:
-        st.dataframe(response)
+        data = response.json()
+        st.dataframe(data)
     else:
         st.write("Could not connect to the API, or clients for given member id not found.")
 else:

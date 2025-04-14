@@ -18,7 +18,7 @@ with st.form("Add Yourself to Project"):
         st.write(data)
         response = requests.post('http://api:4000/m/projects', json = data)
         if response.status_code == 200:
-            st.write("Added yourself succesfully")
+            st.write("Added yourself successfully")
         else:
             st.write("Could not connect to the API, or not found.")
     else:

@@ -146,7 +146,7 @@ def add_to_project():
 
 #------------------------------------------------------------
 # allows for member to get the information of the clients they are working for
-@members.route('/clients/{member_id}', methods=['GET'])
+@members.route('/clients/<member_id>', methods=['GET'])
 def get_clients(member_id):
 
     cursor = db.get_db().cursor()
