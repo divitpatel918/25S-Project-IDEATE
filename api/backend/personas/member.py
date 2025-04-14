@@ -92,10 +92,10 @@ def add_new_status_update():
 @members.route('/tickets', methods=['PUT'])
 def update_customer():
     ticket_info = request.json
-    id = ticket_info('ticket_id')
+    id = ticket_info['ticket_id']
     status = ticket_info['ticket_status']
 
-    query = 'UPDATE Ticket SET ticket_status = %s where id = %s'
+    query = 'UPDATE Ticket SET ticket_status = %s where ticket_id = %s'
     data = (status, id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
