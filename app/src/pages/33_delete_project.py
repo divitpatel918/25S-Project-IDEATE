@@ -20,13 +20,13 @@ if st.button("Delete Project"):
     if project_id and client_id:
         response = requests.delete(f"http://api:4000/c/projects/{client_id}/{project_id}")
         if response.status_code == 200:
-            response = response.json()
-            st.dataframe(response)
+            if response.content:  
+                data = response.json()
+                st.dataframe(data)
+            else:
+                st.success("Project deleted successfully.") 
         else:
-            st.write("Could not connect to the API, or project not found.")
-    else:
-        st.warning("Please enter a Project ID.")
-
+            st.error(f"Failed to delete project: {response.status_code}")
 
 
 
