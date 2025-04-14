@@ -18,8 +18,9 @@ client_id = st.text_input("Enter Client ID to Delete Project:")
 
 if st.button("Delete Project"):
     if project_id and client_id:
-        response = requests.delete(f"http://api:4000/c/projects/{client_id}/{project_id}").json()
+        response = requests.delete(f"http://api:4000/c/projects/{client_id}/{project_id}")
         if response.status_code == 200:
+            response = response.json()
             st.dataframe(response)
         else:
             st.write("Could not connect to the API, or project not found.")
