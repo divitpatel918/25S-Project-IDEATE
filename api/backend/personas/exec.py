@@ -9,7 +9,7 @@ executives = Blueprint('executives', __name__)
 
 
 # user story 1.1 (create event)
-@executives.route('/events', methods=['POST'])
+@executives.route('/events/', methods=['POST'])
 def add_new_event():
 
     the_data = request.json
