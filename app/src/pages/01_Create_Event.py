@@ -1,5 +1,6 @@
 import logging
 logger = logging.getLogger(__name__)
+
 import streamlit as st
 import requests
 from streamlit_extras.app_logo import add_logo
@@ -7,19 +8,32 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("# Accessing a REST API from Within Streamlit")
+st.write("# Create New Ideate Event")
 
-"""
-Simply retrieving data from a REST api running in a separate Docker Container.
+with st.form("Create a New Ideate Event"):
+    title = st.text_input("Enter Event Title: ")
+    start_time = st.text_input("Enter Event Start Time: ")
+    end_time = st.text_input("Enter Event End Time: ")
+    num_rsvps = st.text_input("Enter Number of RVSPS: ")
+    exec_id = st.text_input("Enter Executive ID: ")
+    speaker_id = st.text_input("Enter Speaker ID: ")
 
-If the container isn't running, this will be very unhappy.  But the Streamlit app 
-should not totally die. 
-"""
-data = {} 
-try:
-  data = requests.get('http://api:4000/data').json()
-except:
-  st.write("**Important**: Could not connect to sample api, so using dummy data.")
-  data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
+    submitted = st.form_submit_button("Submit")
 
-st.dataframe(data)
+if submitted:
+    data = {
+        "event_title": title,
+        "event_startTime": start_time,
+        "event_endTime": end_time,
+        "num_RSVPS": num_rsvps,
+        "exec_id": exec_id,
+        "speaker_id": speaker_id
+    }
+    response = requests.post(f"http://api:4000/e/events/", json=data)
+
+    if response.status_code == 200:
+        st.dataframe(response)
+    else:
+        st.write("Could not connect to the API, or not found.")
+else:
+    st.warning("Please press submit.")

@@ -11,49 +11,139 @@ def HomeNav():
 
 
 def AboutPageNav():
-    st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
+    st.sidebar.page_link("pages/30_About.py", label="About", icon="❓")
 
 
-#### ------------------------ Examples for Role of pol_strat_advisor ------------------------
-def PolStratAdvHomeNav():
+#### ------------------------ Role of exec ------------------------
+def ExecHomeNav():
     st.sidebar.page_link(
-        "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
+        "pages/00_Exec_Home.py", label="Executive Board Member Home", icon="🕴️"
     )
 
 
-def WorldBankVizNav():
+def CreateEventNav():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
-    )
-
-
-def MapDemoNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
-
-
-## ------------------------ Examples for Role of usaid_worker ------------------------
-def ApiTestNav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
-
-
-def PredictionNav():
+        "pages/01_Create_Event.py", label="Create Event", icon = "🗓️")
+    
+def GetSpecificEventNav():
     st.sidebar.page_link(
-        "pages/11_Prediction.py", label="Regression Prediction", icon="📈"
-    )
-
-
-def ClassificationNav():
+        "pages/02_Get_Specific_Event.py", label="Get Specific Event", icon = "📅")
+    
+def GetSpecificProjectNav():
     st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
-    )
-
-
-#### ------------------------ System Admin Role ------------------------
-def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
+        "pages/03_Get_Specific_Project.py", label="Get Specific Project", icon = "🗃️")
+    
+def April1ProjectsNav():
     st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
-    )
+        "pages/04_April_1_Projects.py", label="April 1 Projects", icon = "📁")
+    
+def UpdateEventNav():
+    st.sidebar.page_link(
+        "pages/05_Update_Event.py", label="Update Event", icon = "🔄")
+
+
+
+
+
+
+## ------------------------ Role of general member ------------------------
+
+def MemberHomeNav():
+    st.sidebar.page_link(
+        "pages/10_Member_Home.py", label="General Member Home", icon="🧍‍♂️")
+
+def MemberEventsNav():
+    st.sidebar.page_link(
+        "pages/11_Member_Events.py", label="View Events", icon = "👯‍♀️")
+
+def MemberGroupMeetingsNav():
+    st.sidebar.page_link(
+        "pages/12_Member_GroupMeetings.py", label="View Group Meetings", icon = "👩‍💻")
+
+def MemberStatusUpdatesNav():
+    st.sidebar.page_link(
+        "pages/13_Member_StatusUpdates.py", label="View Status Updates", icon = "🔁")
+    
+
+def MemberPostStatusUpdateNav():
+    st.sidebar.page_link(
+        "pages/14_Member_PostStatusUpdate.py", label="Post Status Updates", icon = "⬆️")
+    
+def MemberTicketsNav():
+    st.sidebar.page_link(
+        "pages/15_Member_Tickets.py", label="View Tickets", icon = "📄")
+    
+def MemberSeeProjectsNav():
+    st.sidebar.page_link(
+        "pages/16_Member_SeeProjects.py", label="See Projects", icon = "🗃️")
+    
+def MemberAddToProjectNav():
+    st.sidebar.page_link(
+        "pages/17_Member_AddToProject.py", label="Add Member to Project", icon = "🙋‍♂️")
+    
+def MemberSeeClientsNav():
+    st.sidebar.page_link(
+        "pages/18_Member_SeeClients.py", label="See Clients", icon = "💼")
+
+## ------------------------ Role of advisor ------------------------
+
+
+def AdvisorHomeNav():
+    st.sidebar.page_link(
+        "pages/20_Advisor_Home.py", label="Advisor Home", icon="💁‍♀️")
+
+def AdvisorGetProposalNav():
+    st.sidebar.page_link(
+        "pages/21_Advisor_Get_Proposal.py", label="View Proposals", icon = "📘")
+    
+def AdvisorUpdateClientNav():
+    st.sidebar.page_link(
+        "pages/22_Advisor_Update_Client.py", label="Update Client Information", icon = "👤")
+    
+def AdvisorDeleteMemberNav():
+    st.sidebar.page_link(
+        "pages/23_Advisor_Delete_Member.py", label="Delete Member from Project", icon = "🙅‍♂️")
+
+def AdvisorOfficeHoursNav():
+    st.sidebar.page_link(
+        "pages/24_Advisor_Office_Hours.py", label="Create Office Hours", icon = "📝")
+    
+def AdvisorGetProjectsNav():
+    st.sidebar.page_link(
+        "pages/25_Advisor_Get_Projects.py", label="View All Projects", icon = "📖")
+    
+
+## ------------------------ Role of client ------------------------
+
+
+def ClientHomeNav():
+    st.sidebar.page_link(
+        "pages/30_Client_Home.py", label="Client Home", icon="👨‍💼")
+    
+def ClientGetInfoNav():
+    st.sidebar.page_link(
+        "pages/31_Client_Get_info.py", label="Get Client Information", icon = "💻")
+    
+def ClientChangeDescProjectNav():
+    st.sidebar.page_link(
+        "pages/32_change_desc_project.py", label="Change Project Description", icon = "✏️")
+    
+def ClientDeleteProjectNav():
+    st.sidebar.page_link(
+        "pages/33_delete_project.py", label="Delete Project", icon = "❌")
+    
+def ClientGetMemberInfoNav():
+    st.sidebar.page_link(
+        "pages/34_get_member_info.py", label="Get General Member Information", icon = "👱‍♂️")
+    
+def ClientGetExecInfoNav():
+    st.sidebar.page_link(
+        "pages/35_get_exec_info.py", label="Get Executive Member Information", icon = "ℹ️")
+
+
+
+
+
 
 
 # --------------------------------Links Function -----------------------------------------------
@@ -63,7 +153,7 @@ def SideBarLinks(show_home=False):
     """
 
     # add a logo to the sidebar always
-    st.sidebar.image("assets/logo.png", width=150)
+    st.sidebar.image("assets/Ideate_logo.png", width=150)
 
     # If there is no logged in user, redirect to the Home (Landing) page
     if "authenticated" not in st.session_state:
@@ -78,20 +168,42 @@ def SideBarLinks(show_home=False):
     if st.session_state["authenticated"]:
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
-        if st.session_state["role"] == "pol_strat_advisor":
-            PolStratAdvHomeNav()
-            WorldBankVizNav()
-            MapDemoNav()
+        if st.session_state["role"] == "exec_member":
+            ExecHomeNav()
+            CreateEventNav()
+            GetSpecificEventNav()
+            GetSpecificProjectNav()
+            April1ProjectsNav()
+            UpdateEventNav()
 
         # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "usaid_worker":
-            PredictionNav()
-            ApiTestNav()
-            ClassificationNav()
+        if st.session_state["role"] == "general_member":
+            MemberHomeNav()
+            MemberEventsNav()
+            MemberGroupMeetingsNav()
+            MemberStatusUpdatesNav()
+            MemberPostStatusUpdateNav()
+            MemberTicketsNav()
+            MemberSeeProjectsNav()
+            MemberAddToProjectNav()
+            MemberSeeClientsNav()
 
         # If the user is an administrator, give them access to the administrator pages
-        if st.session_state["role"] == "administrator":
-            AdminPageNav()
+        if st.session_state["role"] == "advisor":
+            AdvisorHomeNav()
+            AdvisorGetProposalNav()
+            AdvisorUpdateClientNav()
+            AdvisorDeleteMemberNav()
+            AdvisorOfficeHoursNav()
+            AdvisorGetProjectsNav()
+
+        if st.session_state["role"] == "client":
+            ClientHomeNav()
+            ClientGetInfoNav()
+            ClientChangeDescProjectNav()
+            ClientDeleteProjectNav()
+            ClientGetMemberInfoNav()
+            ClientGetExecInfoNav()
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()
