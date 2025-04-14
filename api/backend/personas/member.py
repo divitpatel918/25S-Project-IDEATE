@@ -42,13 +42,14 @@ def get_groupMeetings(memberId):
     return response
 
 #------------------------------------------------------------
-# gets all the status updates for the given project 
+# gets all the status updates for the projects for the given user
 @members.route('/statusupdates/<userID>', methods=['GET'])
 def get_StatusUpdates(userID):
     cursor = db.get_db().cursor()
     query = '''SELECT * FROM Status_Update AS su 
-                   JOIN Member_Meeting AS mm ON gm.meeting_id = mm.meeting_id
-                   JOIN General_Member AS genMem ON mm.member_id = genMem.member_id
+                   JOIN Project AS p ON su.project_id = p.project_id
+                   JOIN Member_Project AS memProj ON p.project_id = memProj.project_id
+                   JOIN General_Member as genMem ON memProj.member_id = genMem.member_id
                  WHERE genMem.member_id = {0}'''.format(userID)
     cursor.execute(query)
     theData = cursor.fetchall()
