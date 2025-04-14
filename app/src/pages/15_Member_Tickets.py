@@ -21,7 +21,8 @@ if st.button("Update Ticket"):
         }
         response = requests.put(f"http://api:4000/m/tickets/", json=data)
         if response.status_code == 200:
-            st.write(response)
+            st.write("Ticket description updated succesfully")
+            st.dataframe(data)
         else:
             st.write("Could not connect to the API")
     else:
