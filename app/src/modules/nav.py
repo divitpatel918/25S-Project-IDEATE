@@ -71,7 +71,7 @@ def MemberPostStatusUpdateNav():
     
 def MemberTicketsNav():
     st.sidebar.page_link(
-        "pages/15_Member_Tickets.py", label="View Tickets", icon = "📄")
+        "pages/15_Member_Tickets.py", label="Update Ticket Status", icon = "📄")
     
 def MemberSeeProjectsNav():
     st.sidebar.page_link(
