@@ -90,6 +90,7 @@ def get_clients():
     
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
+    the_response.mimetype='application/json'
     return the_response
 
 
