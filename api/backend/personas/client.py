@@ -42,7 +42,7 @@ def put_project(project_id):
     query = '''
     UPDATE Project 
     SET project_description = %s
-    WHERE project_ID = %s
+    WHERE project_ID = %s 
     '''
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
