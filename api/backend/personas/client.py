@@ -34,7 +34,7 @@ def put_project(project_id):
     the_data = request.json
     current_app.logger.info(the_data)
 
-    project_id = the_data['project_id']
+    
     description = the_data['project_description']
     start_date = the_data['project_startDate']
     end_date = the_data['project_endDate']
