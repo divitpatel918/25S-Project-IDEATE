@@ -19,6 +19,7 @@ with st.form("Create a Status Update"):
         data['update_dateTime'] = status_date
         data['project_id'] = status_projectId
         data['member_id'] = status_memberId
+        st.write("Status Update Created")
         st.write(data)
 
         requests.post('http://api:4000/m/statusupdates', json = data)
