@@ -23,10 +23,10 @@ if st.button("Change Project Description"):
         }
         response = requests.put(f"http://api:4000/c/project/{project_id}", json=data)
         if response.status_code == 200:
-            response = response.json()
-            st.dataframe(response)
+            response = "Updated Succesfully"
+            st.write(response)
         else:
-            st.write("Could not connect to the API, or project not found.")
+            st.error("Could not connect to the API, or project not found.")
     else:
         st.warning("Please enter a Project ID.")
 
