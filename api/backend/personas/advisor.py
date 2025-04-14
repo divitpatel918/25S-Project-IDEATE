@@ -68,7 +68,7 @@ def delete_member_project(member_id, project_id):
 
 
 # 3.2
-@advisors.route('/a/officehours', methods=['POST'])
+@advisors.route('/officehours/', methods=['POST'])
 def create_office_hours():
     session_info = request.json
     session_start_time = session_info['session_startTime']
@@ -76,7 +76,7 @@ def create_office_hours():
     advisor_id = session_info['advisor_id']
 
 
-    current_app.logger.info("POST /a/officehours route")
+    current_app.logger.info("POST /officehours/ route")
 
     query = '''
         INSERT INTO Office_Hours(session_startTime, session_endTime, advisor_id)

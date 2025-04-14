@@ -26,7 +26,8 @@ if submitted:
     response = requests.post(f"http://api:4000/a/officehours/", json=data)
 
     if response.status_code == 200:
-        st.dataframe(response)
+        st.write("Added Office Hours")
+        st.dataframe(data)
     else:
         st.write("Could not connect to the API, or not found.")
 else:
