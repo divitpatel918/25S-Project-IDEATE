@@ -72,7 +72,7 @@ def get_member_info(project_id):
     cursor.execute('''
         SELECT gm.member_id, gm.member_name, gm.member_email, gm.member_year, gm.member_major
         FROM General_Member gm
-        JOIN Members_Project mp ON gm.member_id = mp.member_id
+        JOIN Member_Project mp ON gm.member_id = mp.member_id
         WHERE mp.project_id = %s
     ''', (project_id,))
 
@@ -95,10 +95,10 @@ def get_executive_member(client_id):
                    
     SELECT em.exec_id, em.exec_name, em.exec_email, em.exec_gradYear, em.exec_position
         FROM Executive_Member em
-        JOIN Members_Project mp ON em.exec_id = mp.member_id
+        JOIN Member_Project mp ON em.exec_id = mp.member_id
         JOIN Project p ON mp.project_id = p.project_id
         WHERE p.client_id = %s
-    ''')
+    ''', (client_id))
     
     theData = cursor.fetchall()
     
