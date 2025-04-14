@@ -15,14 +15,15 @@ def get_proposal_by_id(proposal_id):
 
     query = f'''
         SELECT p.proposal_description, p.document_link
-        FROM Proposals p
+        FROM Proposal p
         WHERE proposal_id = %s
     '''
     current_app.logger.info(query)
 
     cursor = db.get_db().cursor()
-    cursor.execute(query)
+    cursor.execute(query, (proposal_id,))
     data = cursor.fetchone()
+
 
     proposal = {
         "proposal_description": data[0],
@@ -38,7 +39,7 @@ def get_proposal_by_id(proposal_id):
 def update_client_email(client_id):
     updated_email = request.json.get('client_email')
 
-    current_app.logger.info("PUT /client/<client_id> route")
+    current_app.logger.info("PUT /a/client/<client_id> route")
 
     query = f'''
         UPDATE Client
@@ -48,7 +49,7 @@ def update_client_email(client_id):
     current_app.logger.info(query)
 
     cursor = db.get_db().cursor()
-    cursor.execute(query)
+    cursor.execute(query, (updated_email, client_id))
     db.get_db().commit()
 
     response = make_response("Client email updated successfully.")
@@ -58,7 +59,7 @@ def update_client_email(client_id):
 # 3.4
 @advisors.route('/member_project/<member_id>/<project_id>', methods=['DELETE'])
 def delete_member_project(member_id, project_id):
-    current_app.logger.info("DELETE /member_project/<member_id>/<project_id> route")
+    current_app.logger.info("DELETE /a/member_project/<member_id>/<project_id> route")
     query = '''
         DELETE FROM Member_Project
         WHERE member_id = %s AND project_id = %s
@@ -74,7 +75,7 @@ def delete_member_project(member_id, project_id):
 
 
 # 3.2
-@advisors.route('/officehours', methods=['POST'])
+@advisors.route('/a/officehours', methods=['POST'])
 def create_office_hours():
     session_info = request.json
     session_start_time = session_info['session_startTime']
@@ -82,7 +83,7 @@ def create_office_hours():
     advisor_id = session_info['advisor_id']
 
 
-    current_app.logger.info("POST /officehours route")
+    current_app.logger.info("POST /a/officehours route")
 
     query = '''
         INSERT INTO Office_Hours(session_startTime, session_endTime, advisor_id)
@@ -101,12 +102,12 @@ def create_office_hours():
 # 3.1
 @advisors.route('/projects', methods=['GET'])
 def get_projects():
-    current_app.logger.info("GET /projects route")
+    current_app.logger.info("GET /a/projects route")
 
     query = '''
         SELECT p.project_id, p.project_description, c.client_name
-        FROM Projects p
-        JOIN Clients c ON p.client_id = c.client_id
+        FROM Project p
+        JOIN Client c ON p.client_id = c.client_id
         ORDER BY c.client_name
     '''
 

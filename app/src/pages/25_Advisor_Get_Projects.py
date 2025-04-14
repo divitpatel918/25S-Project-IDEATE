@@ -17,8 +17,9 @@ advisor_id = st.text_input("Enter Advisor ID to view all projects:")
 
 if st.button("Get all Projects"):
     if advisor_id:
-        response = requests.get(f"http://api:4000/c/projects").json()
+        response = requests.get(f"http://api:4000/a/projects")
         if response.status_code == 200:
+            response = response.json()
             st.dataframe(response)
         else:
             st.write("Could not connect to the API, or project not found.")

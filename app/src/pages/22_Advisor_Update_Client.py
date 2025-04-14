@@ -6,6 +6,7 @@ import requests
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
+
 SideBarLinks()
 
 st.write("# Update Client Information")
@@ -21,9 +22,10 @@ if st.button("Update"):
         data = {
             "client_email": new_info
         }
-        response = requests.put(f"http://api:4000/c/client/{client_id}", json=data)
+        response = requests.put(f"http://api:4000/a/client/{client_id}", json=data)
         if response.status_code == 200:
-            st.dataframe(response)
+            response = "Client email updated successfully."
+            st.write(response)
         else:
             st.write("Could not connect to the API, or project not found.")
     else:

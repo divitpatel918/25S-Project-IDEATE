@@ -23,7 +23,7 @@ if submitted:
         "session_endTime": end_time,
         "advisor_id": advisor_id
     }
-    response = requests.post(f"http://api:4000/e/events/", json=data)
+    response = requests.post(f"http://api:4000/a/officehours/", json=data)
 
     if response.status_code == 200:
         st.dataframe(response)

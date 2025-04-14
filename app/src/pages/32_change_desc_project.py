@@ -15,7 +15,7 @@ st.write("# Update Project Description")
 project_id = st.text_input("Enter Project ID to change project description:")
 new_description = st.text_input("Enter New Project Description:")
 
-if st.button("Change Project Descprition"):
+if st.button("Change Project Description"):
     if project_id and new_description:
 
         data = {
@@ -23,6 +23,7 @@ if st.button("Change Project Descprition"):
         }
         response = requests.put(f"http://api:4000/c/projects/{project_id}", json=data)
         if response.status_code == 200:
+            response = response.json()
             st.dataframe(response)
         else:
             st.write("Could not connect to the API, or project not found.")

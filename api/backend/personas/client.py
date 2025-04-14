@@ -27,9 +27,9 @@ def get_statusupdate(project_id):
 
 #user story 2 
 
-@clients.route('/projects/<project_id>', methods = ['PUT'])
+@clients.route('/project/<project_id>', methods = ['PUT'])
 def put_project(project_id):
-    current_app.logger.info('PUT /projects/<project_id> route')
+    current_app.logger.info('PUT /project/<project_id> route')
 
     the_data = request.json
     current_app.logger.info(the_data)

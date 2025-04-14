@@ -17,8 +17,9 @@ project_id = st.text_input("Enter Project ID to view Members:")
 
 if st.button("Get Member Informations"):
     if project_id:
-        response = requests.get(f"http://api:4000/c/memberproject/{project_id}").json()
+        response = requests.get(f"http://api:4000/c/memberproject/{project_id}")
         if response.status_code == 200:
+            response = response.json()
             st.dataframe(response)
         else:
             st.write("Could not connect to the API, or project not found.")
