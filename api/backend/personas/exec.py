@@ -48,7 +48,7 @@ def add_new_event():
 def get_event(event_id):
     current_app.logger.info('GET /events/<event_id> route')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT event_title, num_RSVPS FROM Events WHERE event_id = {0}'.format(event_id))
+    cursor.execute('SELECT event_title, num_RSVPS FROM Event WHERE event_id = {0}'.format(event_id))
     
     theData = cursor.fetchall()
     
