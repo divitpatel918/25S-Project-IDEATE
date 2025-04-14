@@ -16,6 +16,7 @@ if st.button("Update Ticket"):
     if ticket_id and new_description:
 
         data = {
+            "ticket_id": ticket_id,
             "ticket_status": new_description
         }
         response = requests.put(f"http://api:4000/m/tickets/", json=data)
