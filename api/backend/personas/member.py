@@ -28,9 +28,9 @@ def get_events():
 
 #------------------------------------------------------------
 # gets all the group meetings that this member attends
-@members.route('/groupmeeting/{memberId}', methods=['GET'])
+@members.route('/groupmeeting/<memberId>', methods=['GET'])
 def get_groupMeetings(memberId):
-    cursor = db.get_db.cursor()
+    cursor = db.get_db().cursor()
     query = '''SELECT * FROM Group_Meeting AS gm 
                    JOIN Member_Meeting AS mm ON gm.meeting_id = mm.meeting_id
                    JOIN General_Member AS genMem ON mm.member_id = genMem.member_id
