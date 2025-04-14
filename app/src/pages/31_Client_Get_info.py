@@ -17,9 +17,8 @@ project_id = st.text_input("Enter Project ID to view status updates:")
 
 if st.button("Get Status Updates"):
     if project_id:
-        res = requests.get(f"http://api:4000/c/statusupdate/{project_id}")
-        if res.status_code == 200:
-            response = res.json()
+        response = requests.get(f"http://api:4000/data/c/statusupdate/{project_id}").json()
+        if response.status_code == 200:
             st.dataframe(response)
         else:
             st.write("Could not connect to the API, or project not found.")
