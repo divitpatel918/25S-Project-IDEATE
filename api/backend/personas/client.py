@@ -39,7 +39,7 @@ def put_project(project_id):
     
 
 
-    query = 'UPDATE Project SET project_description = %s, project_startDate = %s, project_endDate = %s WHERE project_ID = %s'
+    query = 'UPDATE Project SET project_description = %s, WHERE project_ID = %s'
     data = (description, project_id)
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
