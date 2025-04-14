@@ -16,21 +16,14 @@ def get_proposal_by_id(proposal_id):
     query = f'''
         SELECT p.proposal_description, p.document_link
         FROM Proposal p
-        WHERE proposal_id = %s
-    '''
+        WHERE proposal_id = {0}'''.format(proposal_id)
     current_app.logger.info(query)
 
     cursor = db.get_db().cursor()
-    cursor.execute(query, (proposal_id,))
-    data = cursor.fetchone()
+    cursor.execute(query)
+    data = cursor.fetchall()
 
-
-    proposal = {
-        "proposal_description": data[0],
-        "document_link": data[1]
-    }
-
-    response = make_response(jsonify(proposal))
+    response = make_response(jsonify(data))
     response.status_code = 200
     return response
 
