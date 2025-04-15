@@ -31,10 +31,10 @@ if st.button('Get Details for a specific Ideate Project',
              use_container_width=True):
   st.switch_page('pages/03_Get_Specific_Project.py')
 
-if st.button('Get April 1 Ideate Projects', 
+if st.button('Get Projects Since September 2024',
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/04_April_1_Projects.py')
+  st.switch_page('pages/04_AfterSeptember1_Projects.py')
 
 if st.button('Update an Ideate Event', 
              type='primary',

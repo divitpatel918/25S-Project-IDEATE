@@ -33,9 +33,9 @@ def GetSpecificProjectNav():
     st.sidebar.page_link(
         "pages/03_Get_Specific_Project.py", label="Get Specific Project", icon = "🗃️")
     
-def April1ProjectsNav():
+def SeptProjectsNav():
     st.sidebar.page_link(
-        "pages/04_April_1_Projects.py", label="April 1 Projects", icon = "📁")
+        "pages/04_AfterSeptember1_Projects.py", label="September and Beyond Projects", icon = "📁")
     
 def UpdateEventNav():
     st.sidebar.page_link(
@@ -178,7 +178,7 @@ def SideBarLinks(show_home=False):
             CreateEventNav()
             GetSpecificEventNav()
             GetSpecificProjectNav()
-            April1ProjectsNav()
+            SeptProjectsNav()
             UpdateEventNav()
 
         # If the user role is usaid worker, show the Api Testing page
