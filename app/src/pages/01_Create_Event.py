@@ -32,7 +32,8 @@ if submitted:
     response = requests.post("http://api:4000/e/events/", json=data)
 
     if response.status_code == 200:
-        st.write("Event added succesfully")
+        st.dataframe(data)
+        st.write("Event added succesfully.")
     else:
         st.write("Could not connect to the API, or not found.")
 else:
