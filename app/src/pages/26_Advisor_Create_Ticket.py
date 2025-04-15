@@ -18,17 +18,18 @@ with st.form("Create a New Ticket"):
     submitted = st.form_submit_button("Submit")
 
 if submitted:
-    data = {
-        "ticket_status": ticket_status,
-        "ticket_description": ticket_description,
-        "project_id": project_id
-    }
-    response = requests.post(f"http://api:4000/a/ticket/", json=data)
+    if ticket_status and ticket_description and project_id:
+        data = {
+            "ticket_status": ticket_status,
+            "ticket_description": ticket_description,
+            "project_id": project_id
+        }
+        response = requests.post(f"http://api:4000/a/ticket/", json=data)
 
-    if response.status_code == 200:
-        st.write("Created Ticket")
-        st.dataframe(data)
-    else:
-        st.write("Could not connect to the API, or not found.")
-else:
-    st.warning("Please press submit.")
+        if response.status_code == 200:
+            st.write("Created Ticket")
+            st.dataframe(data)
+        else:
+            st.write("Could not connect to the API, or not found.")
+
+    else: st.write("Please fill all fields.")

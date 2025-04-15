@@ -4,6 +4,7 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
+
 st.write("# About this App")
 
 st.markdown (
@@ -15,3 +16,4 @@ st.markdown (
     the club takes on.
     """
         )
+

@@ -10,12 +10,12 @@ member_id = st.text_input("Enter Member Id to view Clients:")
 submitted = st.button("Submit Member Id")
 
 if submitted:
- if member_id:
-    response = requests.get(f"http://api:4000/m/clients/{member_id}")
-    if response.status_code == 200:
-        data = response.json()
-        st.dataframe(data)
+    if member_id:
+        response = requests.get(f"http://api:4000/m/clients/{member_id}")
+        if response.status_code == 200:
+            data = response.json()
+            st.dataframe(data)
+        else:
+            st.write("Could not connect to the API, or clients for given member id not found.")
     else:
-        st.write("Could not connect to the API, or clients for given member id not found.")
-else:
-    st.write("Please enter a Member Id.")
+        st.write("Please enter a Member Id.")
