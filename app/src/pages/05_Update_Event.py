@@ -12,8 +12,8 @@ st.write("# Update Specific Event")
 
 event_id = st.text_input("Enter Event ID that is being changed: ")
 title = st.text_input("Enter New Event Title: ")
-start_time = st.text_input("Enter New Start Time: ")
-end_time = st.text_input("Enter New End Time: ")
+start_time = st.text_input("Enter New Start Time (YYYY-MM-DD HH:MM:SS): ")
+end_time = st.text_input("Enter New End Time (YYYY-MM-DD HH:MM:SS): ")
 
 if st.button("Change Event Attributes"):
     if event_id and title and start_time and end_time:
@@ -30,4 +30,4 @@ if st.button("Change Event Attributes"):
         else:
             st.write("Could not connect to the API, or not found.")
     else:
-        st.write("Please enter a Event ID.")
+        st.write("Please fill all fields.")

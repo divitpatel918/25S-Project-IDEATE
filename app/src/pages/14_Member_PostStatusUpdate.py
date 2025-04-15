@@ -8,7 +8,7 @@ SideBarLinks()
 
 with st.form("Create a Status Update"):
     status_description = st.text_input("Input Status Update Description:")
-    status_date = st.text_input("Input Status Update Datetime:")
+    status_date = st.text_input("Input Status Update Datetime (YYYY-MM-DD HH:MM:SS):")
     status_projectId = st.text_input("Input Project Id:")
     status_memberId = st.text_input("Input Member Id")
 
