@@ -13,7 +13,7 @@ advisors = Blueprint('advisors', __name__)
 def get_proposal_by_id(advisor_id):
     current_app.logger.info("GET /proposal/<advisor_id> route")
 
-    query = f'''
+    query = '''
         SELECT *
         FROM Proposal p
         WHERE advisor_id = {0}'''.format(advisor_id)
