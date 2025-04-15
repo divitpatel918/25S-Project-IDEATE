@@ -12,15 +12,15 @@ st.write("# Review a Proposal")
 
 
 
-proposal_id = st.text_input("Enter Proposal ID to access the file:")
+advisor_id = st.text_input("Enter Advisor ID to access the file:")
 
 if st.button("View a Proposal"):
-    if proposal_id:
-        res = requests.get(f"http://api:4000/a/proposal/{proposal_id}")
+    if advisor_id:
+        res = requests.get(f"http://api:4000/a/proposal/{advisor_id}")
         if res.status_code == 200:
             response = res.json()
             st.dataframe(response)
         else:
             st.write("Could not connect to the API, or proposal not found.")
     else:
-        st.warning("Please enter a Proposal ID.")
+        st.warning("Please enter an Advisor ID.")

@@ -38,3 +38,8 @@ if st.button('View Projects',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/25_Advisor_Get_Projects.py')
+
+if st.button('Create Ticket', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/26_Advisor_Create_Ticket.py')

@@ -9,14 +9,14 @@ advisors = Blueprint('advisors', __name__)
 
 
 # 3.6
-@advisors.route('/proposal/<proposal_id>', methods=['GET'])
-def get_proposal_by_id(proposal_id):
-    current_app.logger.info("GET /proposal/<proposal_id> route")
+@advisors.route('/proposal/<advisor_id>', methods=['GET'])
+def get_proposal_by_id(advisor_id):
+    current_app.logger.info("GET /proposal/<advisor_id> route")
 
     query = f'''
-        SELECT p.proposal_description, p.document_link
+        SELECT *
         FROM Proposal p
-        WHERE proposal_id = {0}'''.format(proposal_id)
+        WHERE advisor_id = {0}'''.format(advisor_id)
     current_app.logger.info(query)
 
     cursor = db.get_db().cursor()
@@ -109,5 +109,30 @@ def get_projects():
     data = cursor.fetchall()
 
     response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+
+
+# create ticket
+@advisors.route('/ticket/', methods=['POST'])
+def create_ticket():
+    ticket_info = request.json
+    ticket_status = ticket_info['ticket_status']
+    ticket_description = ticket_info['ticket_description']
+    project_id = ticket_info['project_id']
+
+
+    current_app.logger.info("POST /ticket/ route")
+
+    query = '''
+        INSERT INTO Ticket(ticket_status, ticket_description, project_id)
+        VALUES (%s, %s, %s)
+    '''
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (ticket_status, ticket_description, project_id))
+    db.get_db().commit()
+
+    response = make_response("Ticket created successfully.")
     response.status_code = 200
     return response

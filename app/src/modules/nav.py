@@ -112,6 +112,11 @@ def AdvisorGetProjectsNav():
     st.sidebar.page_link(
         "pages/25_Advisor_Get_Projects.py", label="View All Projects", icon = "📖")
     
+def AdvisorCreateTicketNav():
+    st.sidebar.page_link(
+        "pages/26_Advisor_Create_Ticket.py", label ="Create a New Ticket", icon="🎟️")
+    
+    
 
 ## ------------------------ Role of client ------------------------
 
@@ -196,6 +201,7 @@ def SideBarLinks(show_home=False):
             AdvisorDeleteMemberNav()
             AdvisorOfficeHoursNav()
             AdvisorGetProjectsNav()
+            AdvisorCreateTicketNav()
 
         if st.session_state["role"] == "client":
             ClientHomeNav()
