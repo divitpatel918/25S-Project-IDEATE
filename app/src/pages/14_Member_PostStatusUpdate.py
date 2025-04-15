@@ -12,16 +12,20 @@ with st.form("Create a Status Update"):
     status_projectId = st.text_input("Input Project Id:")
     status_memberId = st.text_input("Input Member Id")
 
-    submitted = st.form_submit_button("Submit:")
+    submitted = st.form_submit_button("Submit")
     if submitted:
-        data = {}
-        data['update_description'] = status_description
-        data['update_dateTime'] = status_date
-        data['project_id'] = status_projectId
-        data['member_id'] = status_memberId
-        st.write("Status Update Created")
-        st.write(data)
+        if status_description and status_date and status_projectId and status_memberId:
+            data = {}
+            data['update_description'] = status_description
+            data['update_dateTime'] = status_date
+            data['project_id'] = status_projectId
+            data['member_id'] = status_memberId
+            response = requests.post('http://api:4000/m/statusupdates', json = data)
+            if response.status_code == 200:
 
-        requests.post('http://api:4000/m/statusupdates', json = data)
+                st.write("Status Update Created")
+                st.write(data)
+        else: st.write("Please fill all fields.")
+
 
     

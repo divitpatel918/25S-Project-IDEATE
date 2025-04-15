@@ -24,6 +24,7 @@ if st.button("Delete Project"):
             st.write(response)
         else:
             st.success("Project deleted successfully.") 
+    else: st.write("Please fill all fields.")
 
 
 

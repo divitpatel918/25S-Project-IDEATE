@@ -31,11 +31,11 @@ def get_events():
 @members.route('/groupmeeting/<memberId>', methods=['GET'])
 def get_groupMeetings(memberId):
     cursor = db.get_db().cursor()
-    query = '''SELECT meeting_startTime as Start Time, meeting_endTime as End Time
-                   FROM Group_Meeting AS gm 
-                   JOIN Member_Meeting AS mm ON gm.meeting_id = mm.meeting_id
-                   JOIN General_Member AS genMem ON mm.member_id = genMem.member_id
-                 WHERE genMem.member_id = {0}'''.format(memberId)
+    query = '''SELECT gm.meeting_startTime as `Start Time`, gm.meeting_endTime as `End Time`
+                    FROM Group_Meeting AS gm
+                    JOIN Member_Meeting AS mm ON gm.meeting_id = mm.meeting_id
+                    JOIN General_Member AS genMem ON mm.member_id = genMem.member_id
+                    WHERE genMem.member_id = {0}'''.format(memberId)
     cursor.execute(query)
     theData = cursor.fetchall()
     response = make_response(jsonify(theData))
@@ -47,11 +47,12 @@ def get_groupMeetings(memberId):
 @members.route('/statusupdates/<userID>', methods=['GET'])
 def get_StatusUpdates(userID):
     cursor = db.get_db().cursor()
-    query = '''SELECT * FROM Status_Update AS su 
-                   JOIN Project AS p ON su.project_id = p.project_id
-                   JOIN Member_Project AS memProj ON p.project_id = memProj.project_id
-                   JOIN General_Member as genMem ON memProj.member_id = genMem.member_id
-                 WHERE genMem.member_id = {0}'''.format(userID)
+    query = '''SELECT p.project_id as `ProjectId`, update_dateTime, update_description
+                FROM Status_Update AS su 
+                JOIN Project AS p ON su.project_id = p.project_id
+                JOIN Member_Project AS memProj ON p.project_id = memProj.project_id
+                JOIN General_Member as genMem ON memProj.member_id = genMem.member_id
+                WHERE genMem.member_id = {0}'''.format(userID)
     cursor.execute(query)
     theData = cursor.fetchall()
     response = make_response(jsonify(theData))

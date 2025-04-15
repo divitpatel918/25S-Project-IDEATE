@@ -213,6 +213,7 @@ def SideBarLinks(show_home=False):
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()
+    
 
 
     if st.session_state["authenticated"]:
