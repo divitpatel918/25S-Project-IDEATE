@@ -31,7 +31,8 @@ def get_events():
 @members.route('/groupmeeting/<memberId>', methods=['GET'])
 def get_groupMeetings(memberId):
     cursor = db.get_db().cursor()
-    query = '''SELECT * FROM Group_Meeting AS gm 
+    query = '''SELECT meeting_startTime as Start Time, meeting_endTime as End Time
+                   FROM Group_Meeting AS gm 
                    JOIN Member_Meeting AS mm ON gm.meeting_id = mm.meeting_id
                    JOIN General_Member AS genMem ON mm.member_id = genMem.member_id
                  WHERE genMem.member_id = {0}'''.format(memberId)
