@@ -26,6 +26,7 @@ if st.button("Update"):
         if response.status_code == 200:
             response = "Client email updated successfully."
             st.write(response)
+            st.dataframe(data)
         else:
             st.write("Could not connect to the API, or project not found.")
     else:
