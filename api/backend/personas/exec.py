@@ -72,7 +72,7 @@ def get_projects(project_id):
 
 
 
-# user story 1.4 (get clients and projects that started on April 1)
+# user story 1.4 (get clients and projects that started on or after September 1, 2024
 @executives.route('/clients', methods=['GET'])
 def get_clients():
 
@@ -82,7 +82,7 @@ def get_clients():
     SELECT c.client_name AS client, p.project_description AS project
     FROM Client c
     JOIN Project p ON c.client_id = p.client_id
-    WHERE p.project_startDate = '2025-04-01'
+    WHERE p.project_startDate > DATE '2024-08-31'
 
     ''')
     

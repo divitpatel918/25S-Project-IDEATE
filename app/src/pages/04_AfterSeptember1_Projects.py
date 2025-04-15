@@ -8,7 +8,7 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("# Get April 1 Project/Client Info")
+st.write("# Get Projects that started on or after September 1")
 
 response = requests.get("http://api:4000/e/clients")
 

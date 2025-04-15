@@ -8,11 +8,10 @@ st.write("# About this App")
 
 st.markdown (
     """
-    This is a demo app for CS 3200 Course Project.  
+    This is an app for the Club Ideate to help each persona (Executive Members, Advisors, Clients, and General Members)
 
-    The goal of this demo is to provide information on the tech stack 
-    being used as well as demo some of the features of the various platforms. 
-
-    Stay tuned for more information and features to come!
+    The goal of this app is to centralize all the data that the club needs into one platform, allowing people to log in
+    as these personas and view, update, or delete the necessary informationr regarding the projects, clients, and events
+    the club takes on.
     """
         )
