@@ -10,16 +10,17 @@ Ideate is tailored to support four key user groups:
 - **Advisors (Professors/Teaching Assistants):** View club projects, hold office hours, and invite new members.
 - **Clients:** Submit project proposals, track project progress, and refer other clients to the club.
 
-### Notable Functionalities
-- **Real-time Project Dashboards:** Monitor project timelines and updates.
-- **Centralized Scheduling System:** View upcoming club meetings and events.
-- **Seamless Client-Club Interaction:** Clients can submit, track, and manage project proposals efficiently.
 
 ## Technology Stack
 The project follows a **three-tier architecture** running on Docker containers:
 1. **Backend:** Python Flask REST API for data access and business logic.
 2. **Database:** MySQL for structured storage and management of club, project, and user data.
 3. **Frontend:** Streamlit-based user interface for an interactive experience.
+
+The three components that will run in their own Docker Containers:
+- Streamlit App in the `./app` directory
+- Flask REST api in the `./api` directory
+- MySQL Database that will be initialized with SQL script files from the `./database-files` directory
 
 ## Project Setup
 ### Prerequisites

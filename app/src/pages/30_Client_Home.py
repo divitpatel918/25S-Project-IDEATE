@@ -34,7 +34,7 @@ if st.button('Get all Members Working on Project',
              use_container_width=True):
   st.switch_page('pages/34_get_member_info.py')
 
-if st.button('Get all Executive Working on Member', 
+if st.button('Get all Executives Working on Project', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/35_get_exec_info.py')
