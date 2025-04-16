@@ -1,5 +1,5 @@
 # Ideate - A Data-Driven Club Management Platform
-
+# Link to Video Demonstrations: https://drive.google.com/file/d/1vSpNu-gWNy0Kt8EZfN7eOq42l6w23vmh/view?usp=drive_link
 ## Overview
 Running a product-development club at university comes with challenges, from recruiting members to managing projects and keeping all stakeholders informed. Ideate is a data-driven platform designed to streamline club management by centralizing information on projects, clients, and members. Our platform ensures that clubs can seamlessly connect with clients, work on impactful projects, and foster the professional growth of college students.
 
@@ -34,3 +34,5 @@ Ensure you have the following installed:
    1. `docker compose -f docker-compose-testing.yaml down` to shutdown and delete the containers
    1. `docker compose -f docker-compose-testing.yaml up db -d` only start the database container (replace db with api or app for the other two services as needed)
    1. `docker compose -f docker-compose-testing.yaml stop` to "turn off" the containers but not delete them.
+
+
