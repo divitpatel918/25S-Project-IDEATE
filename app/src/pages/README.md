@@ -1,7 +1,3 @@
-# `pages` Folder
+# Pages Folder
 
-This folder contains all the pages that will be part of the application. Details on required numbers will be provided in the Phase 3 documentation.
-
-These pages are meant to show you an example of some of the features of Streamlit and the way we will limit functionality access by role/persona. It is not meant to represent a complete application.
-
-TODO: Describe the pages folder and include link to documentation. Don't forget about ordering of pages.
+This folder contains all the pages for each persona that will be displayed on the front end of the application. The pages starting with 00, 10, 20, and 30 are the home page for each user persona, that includes buttons that allow this persona to perform some sort of functionality. Once the user clicks on these buttons, it directs them to a different appropriate page that will allow the user to get certain information, post information, edit existing information in the database, or delete information from the database. When receiving input from the user, we used Streamlit's st.textInput (or number input) to collect the data. Finally, for each page, there is a submit button that once the user enters in the required fields, will properly update the database. If the user does not enter in all the fields, then the website will signal a warning saying that not all fields were entered. 
