@@ -27,3 +27,10 @@ Ensure you have the following installed:
 - Docker
 - Python
 - MySQL
+
+1. Set up the `.env` file in the `api` folder based on the `.env.template` file.
+1. For running the testing containers (for your personal repo), you will tell `docker compose` to use a different configuration file named `docker-compose-testing.yaml`.
+   1. `docker compose -f docker-compose-testing.yaml up -d` to start all the containers in the background
+   1. `docker compose -f docker-compose-testing.yaml down` to shutdown and delete the containers
+   1. `docker compose -f docker-compose-testing.yaml up db -d` only start the database container (replace db with api or app for the other two services as needed)
+   1. `docker compose -f docker-compose-testing.yaml stop` to "turn off" the containers but not delete them.
